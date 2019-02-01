@@ -8,7 +8,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,3 +29,36 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar{
+   background-color: #08262F;
+}
+.navbar-brand{
+  margin-left: 1rem;
+}
+
+.bg-dark{
+  background-color: #08262F;
+}
+
+.home{
+  margin-top: -10px;
+  margin-right: 165px;
+  margin-bottom: -50px;
+  height:700px;
+  text-align: left;
+  background-position:center;
+  background-image: url('background.svg');
+  background-repeat: no-repeat;
+  color:white;
+}
+
+#title{
+  margin-left: 250px; 
+  margin-top: 250px;
+  padding-top: 200px;
+  padding-left: 300px;
+  display: table-cell;
+  vertical-align: middle;
+}
+

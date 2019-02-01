@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import ToothIcon from './tooth.png';
 
 class TopBar extends Component {
   render() {
@@ -14,7 +15,8 @@ class TopBar extends Component {
 	          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	          crossorigin="anonymous"
 	    />
-		<Navbar bg="dark" variant="dark">
+		<Navbar variant="dark">
+			<img src={ToothIcon} alt="Capstone Icon" height="50" width="50"/>
 		    <Navbar.Brand href="#home">Capstone</Navbar.Brand>
 		    <Nav className="mr-auto">
 		      <Nav.Link href="#home">Home</Nav.Link>
