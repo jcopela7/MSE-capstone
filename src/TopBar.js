@@ -9,7 +9,7 @@ import ToothIcon from './tooth.png';
 class TopBar extends Component {
   	constructor(props){
   		super(props);
-		this.state={page:1};
+		this.state={page:"Home"};
 		this.handleSelect=this.handleSelect.bind(this);
 	}
 
@@ -41,9 +41,7 @@ class TopBar extends Component {
 			      <Button variant="outline-info">Search</Button>
 			    </Form>
 			  </Navbar>
-			<div className="home">
-            	<h1 id="title">Bruxism</h1>
-            	<h1>{this.state.page}</h1>
+			<div>
             	<PageRender page={this.state.page}/>
           	</div>
 		</div>

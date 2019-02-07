@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import ToothIcon from './tooth.png';
+import UserData from './UserData';
+import "react-table/react-table.css";
+import './Home.css';
 
 class PageRender extends Component {
 	
 	render(){
-		if(this.props.page==="UserData"){
-			return(
-				<h1>Hello World</h1>
-				)	
-		}
-		else{
-			return(
-				<h1>sup</h1>
-				)
+		switch(this.props.page){
+			case "Home":
+				return(
+					<div className="home">
+	            		<h1 id="title">Bruxism</h1>     		
+	          		</div>
+					)
+			case "UserData":
+				return(
+					<UserData/>
+					)
+			case "DentistData":
+				return(
+					<h1>Dentist Data</h1>
+					)
 		}
 	};
 }
