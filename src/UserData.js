@@ -10,10 +10,13 @@ class UserData extends Component {
 	constructor(props){
 	super(props)
 		this.state={
+			data:[{
 			FirstName: "Jon", LastName: "Doe",
 			weight: 210,
 			age: 21,
 			gender: "M"
+		}], 
+		user: "name"
 		
 	};
 	this.handleUser=this.handleUser.bind(this);
@@ -21,28 +24,21 @@ class UserData extends Component {
 	}
 
 	handleUser(event){
-		const user=event.target.value;
-	
-		if(user==="Jonathan"){
-			this.setState({
-				FirstName:"Jonathan",LastName: "Copeland",
-				weight: 180,
-				age:22,
-				gender:"M"
-			});
-		}
-		else{
-			this.setState({
-				FirstName:"Bridget",LastName: "Hall",
-				weight: 400,
-				age:17,
-				gender:"Unknown"
-			});
-		}
+		const userEntry=event.target.value;
+		
+		this.setState({user:userEntry})
 	}
 
 	handleSubmit(event){
-		event.preventDefault();
+		alert("Hello");
+		fetch("/User")
+      		.then(res => res.json())
+      		.then((data) => {
+        		this.setState({
+          		data: data
+        	});
+      	});
+    event.preventDefault();
 	}
 
 	render(){
