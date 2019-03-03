@@ -11,12 +11,13 @@ class UserData extends Component {
 	super(props)
 		this.state={
 			data:[{
-			FirstName: "Jon", LastName: "Doe",
+			FirstName: "Null", 
+			lastName: "Doe",
 			weight: 210,
 			age: 21,
 			gender: "M"
 		}], 
-		user: "name"
+		user: "Null"
 		
 	};
 	this.handleUser=this.handleUser.bind(this);
@@ -30,8 +31,7 @@ class UserData extends Component {
 	}
 
 	handleSubmit(event){
-		alert("Hello");
-		fetch("/User")
+		fetch("/user/" + this.state.user)
       		.then(res => res.json())
       		.then((data) => {
         		this.setState({
@@ -41,27 +41,36 @@ class UserData extends Component {
     event.preventDefault();
 	}
 
+
 	render(){
-		return(
-			<div>
-				<Form className="Login" onSubmit={k=>this.handleSubmit(k)}>
-					<Form.Group>
-						<Form.Label> Username </Form.Label>
-						<Form.Control type="text" placeholder="Login" className="mr-sm-2" onChange={this.handleUser}/>
-					</Form.Group>
-					<Form.Group>
-						<Form.Label> Password</Form.Label>
-						<Form.Control type="text" placeholder="Password" className="mr-sm-2" />
-					</Form.Group>
-					<Button type="submit" variant="outline-info">Enter</Button>
-		        </Form>
+
+		const profile=this.state.data;
+
+		if(profile[profile.length-1].FirstName==="Null"){
+			return(
+				<div>
+					<Form className="Login" onSubmit={k=>this.handleSubmit(k)}>
+						<Form.Group>
+							<Form.Label> Username </Form.Label>
+							<Form.Control type="text" placeholder="Login" className="mr-sm-2" onChange={this.handleUser}/>
+						</Form.Group>
+						<Form.Group>
+							<Form.Label> Password</Form.Label>
+							<Form.Control type="text" placeholder="Password" className="mr-sm-2" />
+						</Form.Group>
+						<Button type="submit" variant="outline-info">Enter</Button>
+			        </Form>
+			     </div>
+			)
+		}
+		else{
+			return(
 				<ProfileInfo
-					FirstName={this.state.FirstName}
-					LastName={this.state.LastName}
-					weight={this.state.weight}/>
-				
-			</div>
-		)
+					FirstName={profile[profile.length-1].FirstName}
+					LastName={profile[profile.length-1].LastName}
+					weight={profile[profile.length-1].weight}/>
+				)
+		}
 	};
 }
 

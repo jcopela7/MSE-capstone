@@ -1,12 +1,17 @@
 'use strict';
+var mongoose = require('mongoose'),
+	User = mongoose.model('User');
+
 module.exports = function(app) {
-  var UserList = require('../controllers/userControllers');
+  //var UserList = require('../controllers/userControllers.js');
 
   // pullUpsList Routes
-  app.route('/User')
-    .get(UserList.get_user);
-  	//.post(UserList.User)
-    //.post(pullUpsList.create_a_task);
-
-  
+  app.get('/user/:FirstName',function(req,res){
+		User.find({'FirstName': req.params.FirstName }, function(err, data) {
+		   if (err)
+		     res.send(err);
+		  console.log(data);
+		  res.json(data);
+		  });
+		});
 };
