@@ -22,39 +22,12 @@ class DataTable extends Component{
 	        P6: 43,
 	        P7: 12,
 	        P8: 89
-	      },
-	      {
-	      	user: "Jon",
-	        date: "01-12-2019",
-	        time: "12:02 am",
-	        P1: 10,
-	        P2: 32,
-	        P3: 34,
-	        P4: 65,
-	        P5: 45,
-	        P6: 43,
-	        P7: 12,
-	        P8: 89
-	      },
-	      {
-	      	user:"Jon",
-	        date: "01-13-2019",
-	        time: "4:00 am",
-	        P1: 10,
-	        P2: 32,
-	        P3: 34,
-	        P4: 45,
-	        P5: 75,
-	        P6: 43,
-	        P7: 12,
-	        P8: 89
 	      }]
     	};
 
 	}
 
 	handleSubmit(event){
-		alert("Hello");
 		fetch("/data/" + this.props.user)
       		.then(res => res.json())
       		.then((data) => {
@@ -91,8 +64,10 @@ class DataTable extends Component{
 				filterable: true
 
 			},
+			{Header: "Pressure",
+			columns: [
 			{
-				Header:'Pressure 1',
+				Header:'Bottom Two',
 				accessor: "P1",
 					aggregate: vals => _.sum(vals),
 				Footer:(
@@ -104,7 +79,7 @@ class DataTable extends Component{
 				filterable: false
 			},
 			{
-				Header:'Pressure 2',
+				Header:'Top Two',
 				id: 'P2',
 				accessor: d => {
 						return(d.P2)
@@ -118,7 +93,7 @@ class DataTable extends Component{
 				filterable: false
 			},
 			{
-				Header:'Pressure 3',
+				Header:'Front Left',
 				id: 'P3',
 				accessor: d => {
 						return(d.P3)
@@ -132,7 +107,7 @@ class DataTable extends Component{
 				filterable: false
 			},
 			{
-				Header:'Pressure 4',
+				Header:'Front Right',
 				id: 'P4',
 				accessor: d => {
 						return(d.P4)
@@ -146,7 +121,7 @@ class DataTable extends Component{
 				filterable: false
 			},
 			{
-				Header:'Pressure 5',
+				Header:'Fangs Left',
 				id: 'P5',
 				accessor: d => {
 						return(d.P5)
@@ -161,7 +136,7 @@ class DataTable extends Component{
 				filterable: false
 			},
 			{
-				Header:'Pressure 6',
+				Header:'Fangs Right',
 				id: 'P6',
 				accessor: d => {
 						return(d.P6)
@@ -176,7 +151,7 @@ class DataTable extends Component{
 				filterable: false
 			},
 			{
-				Header:'Pressure 7',
+				Header:'Molars Left',
 				id: 'P7',
 				accessor: d => {
 						return(d.P7)
@@ -191,7 +166,7 @@ class DataTable extends Component{
 				filterable: false
 			},
 			{
-				Header:'Pressure 8',
+				Header:'Molars Right',
 				id: 'P8',
 				accessor: d => {
 						return(d.P8)
@@ -205,6 +180,7 @@ class DataTable extends Component{
 				width:100,
 				filterable: false
 			},
+			]}
 			]}
 			defaultPageSize={10}
 			className="-striped -highlight"
