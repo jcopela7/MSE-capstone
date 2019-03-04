@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	MouthgaurdData = mongoose.model('MouthgaurdData');
 
 module.exports = function(app) {
   //var UserList = require('../controllers/userControllers.js');
@@ -14,4 +15,14 @@ module.exports = function(app) {
 		  res.json(data);
 		  });
 		});
+
+  app.get('/data/:user',function(req,res){
+  		MouthgaurdData.find({'user':req.params.user}, function (err,data){
+		   if (err)
+		     res.send(err);
+		  console.log(data);
+		  res.json(data);  			
+  		  });
+  		});
+
 };

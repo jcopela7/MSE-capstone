@@ -68,7 +68,8 @@ class UserData extends Component {
 				<ProfileInfo
 					FirstName={profile[profile.length-1].FirstName}
 					LastName={profile[profile.length-1].LastName}
-					weight={profile[profile.length-1].weight}/>
+					weight={profile[profile.length-1].weight}
+					user={this.state.user}/>
 				)
 		}
 	};
