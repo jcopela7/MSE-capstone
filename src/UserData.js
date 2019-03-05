@@ -11,12 +11,25 @@ class UserData extends Component {
 	super(props)
 		this.state={
 			data:[{
-			FirstName: "Null", 
-			lastName: "Doe",
-			weight: 210,
-			age: 21,
-			gender: "M"
-		}], 
+				FirstName: "Null", 
+				lastName: "Doe",
+				weight: 210,
+				age: 21,
+				gender: "M"
+			}],
+			mouthgaurdData:[{
+				user:"Jon",	
+		        date: "01-12-2019",
+		        time: "12:01 am",
+		        P1: 10,
+		        P2: 32,
+		        P3: 34,
+		        P4: 23,
+		        P5: 23,
+		        P6: 43,
+		        P7: 12,
+		        P8: 89
+			}], 
 		user: "Null"
 		
 	};
@@ -36,6 +49,13 @@ class UserData extends Component {
       		.then((data) => {
         		this.setState({
           		data: data
+        	});
+      	});
+      	fetch("/data/" + this.state.user)
+      		.then(res => res.json())
+      		.then((data) => {
+        		this.setState({
+          		mouthgaurdData: data
         	});
       	});
     event.preventDefault();
@@ -69,7 +89,8 @@ class UserData extends Component {
 					FirstName={profile[profile.length-1].FirstName}
 					LastName={profile[profile.length-1].LastName}
 					weight={profile[profile.length-1].weight}
-					user={this.state.user}/>
+					user={this.state.user}
+					data={this.state.mouthgaurdData}/>
 				)
 		}
 	};

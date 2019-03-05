@@ -5,41 +5,53 @@ import "react-table/react-table.css";
 import './Table.css';
 import _ from 'lodash';
 import Button from 'react-bootstrap/Button';
+import {Radar} from 'react-chartjs-2';
+
 
 class DataTable extends Component{
 	constructor(props){
 		super(props);
 		this.state= {
-	        data: [{
-	        user:"Jon",	
-	        date: "01-12-2019",
-	        time: "12:01 am",
-	        P1: 10,
-	        P2: 32,
-	        P3: 34,
-	        P4: 23,
-	        P5: 23,
-	        P6: 43,
-	        P7: 12,
-	        P8: 89
-	      }]
+	      radarData:{
+	      	datasets:[{
+	      		data:[23,12,42]
+	      	}],
+	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
+	      }
     	};
 
 	}
 
 	handleSubmit(event){
-		fetch("/data/" + this.props.user)
-      		.then(res => res.json())
-      		.then((data) => {
-        		this.setState({
-          		data: data
-        	});
-      	});
+		const data=this.props.data;
+		var dataAvg=[0,0,0,0,0,0,0,0];
+
+		//get sum of all pressure data
+		for (let i=0;i<data.length;i++){
+			dataAvg[0]+=data[i].P1;
+			dataAvg[1]+=data[i].P1;
+			dataAvg[2]+=data[i].P2;
+			dataAvg[3]+=data[i].P3;
+			dataAvg[4]+=data[i].P4;
+			dataAvg[5]+=data[i].P5;
+			dataAvg[6]+=data[i].P6;
+			dataAvg[7]+=data[i].P7;
+			dataAvg[8]+=data[i].P8;
+		}
+
+		//get average of each ionic skin
+		for (let i=0; i<dataAvg.length-1; i++){
+			dataAvg[i]=dataAvg[i]/data.length;
+		}
+
+		//update radarData set
+		alert(dataAvg[0]);
+
     event.preventDefault();		
 	}
 
 	render(){
-		const data =this.state.data;
+		const data =this.props.data;
 		
 		//calculate pull up sum
 		let sum=[0,0,0];
@@ -187,7 +199,8 @@ class DataTable extends Component{
 			showPagination={false}
 			filterable
 			/>
-			<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Refresh </Button>
+			<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Process Raw Data </Button>
+			<Radar data={this.state.radarData}/>
 			</div>
 		);
 	}

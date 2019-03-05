@@ -24,7 +24,7 @@ class ProfileInfo extends Component {
 					<h3> First Name: {this.props.FirstName} </h3>
 					<h3> Last Name: {this.props.LastName} </h3>
 					<h3> Weight: {this.props.weight} Kg </h3>
-					<DataTable user={this.props.user}/>
+					<DataTable data={this.props.data}/>
 					
 				</div>
 			)
