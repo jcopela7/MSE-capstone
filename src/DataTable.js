@@ -14,11 +14,20 @@ class DataTable extends Component{
 		this.state= {
 	      radarData:{
 	      	datasets:[{
-	      		data:[23,12,42]
+	      		data:[],
+	      		label:'Average Force',
+	  			backgroundColor: 'rgba(255,99,132,0.2)',
+      			borderColor: 'rgba(255,99,132,1)',
+      			pointBackgroundColor: 'rgba(255,99,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(255,99,132,1)'	  		
 	      	}],
 	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
-	      }
+	      },
+	      processed: false
     	};
+
 
 	}
 
@@ -45,15 +54,21 @@ class DataTable extends Component{
 		}
 
 		//update radarData set
-		alert(dataAvg[0]);
-
-    event.preventDefault();		
+		this.setState({radarData: {
+			datasets:[{
+				data:dataAvg,
+				label:'Average Force'
+				}],
+			labels:['P1','P2','P3','P4','P5','P6','P7','P8']
+			}
+		})
+   		 event.preventDefault();		
 	}
 
 	render(){
 		const data =this.props.data;
 		
-		//calculate pull up sum
+		//calculate sum of sensors
 		let sum=[0,0,0];
 		for (let i=0; i<data.length;i++){
 			sum[0]+=data[i].P1
@@ -200,7 +215,9 @@ class DataTable extends Component{
 			filterable
 			/>
 			<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Process Raw Data </Button>
+			<h1> Average Force </h1>
 			<Radar data={this.state.radarData}/>
+			
 			</div>
 		);
 	}
