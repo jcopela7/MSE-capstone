@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import DataTable from './DataTable';
+
+//images
 import UserIcon from './user.png';
+
+//css
 import "react-table/react-table.css";
 
+//Child componenets
+import DataTable from './DataTable';
 
 class ProfileInfo extends Component {
 	constructor(props){

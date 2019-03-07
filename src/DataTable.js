@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+
+//js libraries
 import Moment from 'moment';
+import _ from 'lodash';
+
+//React libraries
 import ReactTable from 'react-table'
+import Button from 'react-bootstrap/Button';
+
+//CSS
 import "react-table/react-table.css";
 import './Table.css';
-import _ from 'lodash';
-import Button from 'react-bootstrap/Button';
-import {Radar} from 'react-chartjs-2';
+
+//Child Components
+import Analysis from './Analysis.js';
 
 
 class DataTable extends Component{
@@ -25,7 +33,7 @@ class DataTable extends Component{
 	      	}],
 	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
 	      },
-	      processed: false
+	      processed: 'FALSE'
     	};
 
 
@@ -54,30 +62,28 @@ class DataTable extends Component{
 		}
 
 		//update radarData set
-		this.setState({radarData: {
+		this.setState({
+			processed: 'TRUE',
+			radarData: {
 			datasets:[{
 				data:dataAvg,
-				label:'Average Force'
+				label:'Average Force',
+				backgroundColor: 'rgba(255,99,132,0.2)',
+      			borderColor: 'rgba(255,99,132,1)',
+      			pointBackgroundColor: 'rgba(255,99,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(255,99,132,1)'
 				}],
 			labels:['P1','P2','P3','P4','P5','P6','P7','P8']
-			}
+			},
+
 		})
    		 event.preventDefault();		
 	}
 
 	render(){
 		const data =this.props.data;
-		
-		//calculate sum of sensors
-		let sum=[0,0,0];
-		for (let i=0; i<data.length;i++){
-			sum[0]+=data[i].P1
-			sum[1]+=data[i].P2
-			sum[2]+=data[i].P3
-		}
-
-
-
 		return(
 			<div className="Table">
 			<ReactTable data={data} columns={[
@@ -91,133 +97,100 @@ class DataTable extends Component{
 				filterable: true
 
 			},
-			{Header: "Pressure",
-			columns: [
 			{
-				Header:'Bottom Two',
-				accessor: "P1",
-					aggregate: vals => _.sum(vals),
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[0]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
-			{
-				Header:'Top Two',
-				id: 'P2',
-				accessor: d => {
-						return(d.P2)
+				Header: "Pressure",
+				columns: [
+				{
+					Header:'Bottom Two',
+					accessor: "P1",
+						aggregate: vals => _.sum(vals),
+					width:100,
+					filterable: false
 				},
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[1]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
-			{
-				Header:'Front Left',
-				id: 'P3',
-				accessor: d => {
-						return(d.P3)
+				{
+					Header:'Top Two',
+					id: 'P2',
+					accessor: d => {
+							return(d.P2)
+					},
+					width:100,
+					filterable: false
 				},
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[2]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
-			{
-				Header:'Front Right',
-				id: 'P4',
-				accessor: d => {
-						return(d.P4)
+				{
+					Header:'Front Left',
+					id: 'P3',
+					accessor: d => {
+							return(d.P3)
+					},
+					width:100,
+					filterable: false
 				},
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[2]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
-			{
-				Header:'Fangs Left',
-				id: 'P5',
-				accessor: d => {
-						return(d.P5)
-				
+				{
+					Header:'Front Right',
+					id: 'P4',
+					accessor: d => {
+							return(d.P4)
+					},
+					width:100,
+					filterable: false
 				},
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[2]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
-			{
-				Header:'Fangs Right',
-				id: 'P6',
-				accessor: d => {
-						return(d.P6)
-				
+				{
+					Header:'Fangs Left',
+					id: 'P5',
+					accessor: d => {
+							return(d.P5)
+					
+					},
+					width:100,
+					filterable: false
 				},
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[2]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
-			{
-				Header:'Molars Left',
-				id: 'P7',
-				accessor: d => {
-						return(d.P7)
-				
+				{
+					Header:'Fangs Right',
+					id: 'P6',
+					accessor: d => {
+							return(d.P6)
+					
+					},
+					width:100,
+					filterable: false
 				},
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[2]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
-			{
-				Header:'Molars Right',
-				id: 'P8',
-				accessor: d => {
-						return(d.P8)
-				
+				{
+					Header:'Molars Left',
+					id: 'P7',
+					accessor: d => {
+							return(d.P7)
+					
+					},
+					width:100,
+					filterable: false
 				},
-				Footer:(
-					<span>
-					<strong> Total: </strong> {sum[2]}
-					</span>
-					),
-				width:100,
-				filterable: false
-			},
+				{
+					Header:'Molars Right',
+					id: 'P8',
+					accessor: d => {
+							return(d.P8)
+					
+					},
+					// Footer:(
+					// 	<span>
+					// 	<strong> Total: </strong> {sum[2]}
+					// 	</span>
+					// 	),
+					width:100,
+					filterable: false
+				},
+				]}
 			]}
-			]}
-			defaultPageSize={10}
-			className="-striped -highlight"
-			showPagination={false}
-			filterable
-			/>
-			<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Process Raw Data </Button>
-			<h1> Average Force </h1>
-			<Radar data={this.state.radarData}/>
-			
+				defaultPageSize={10}
+				className="-striped -highlight"
+				showPagination={false}
+				filterable
+				/>
+				<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Process Raw Data </Button>
+				<Analysis 
+					processed = {this.state.processed}
+					radarData={this.state.radarData}
+				/>			
 			</div>
 		);
 	}

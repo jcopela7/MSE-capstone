@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import ProfileInfo from './ProfileInfo';
+
+//CSS
 import "react-table/react-table.css";
 import './Home.css';
 import './Login.css';
+
+//React Libraries
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
+//Child componenets
+import ProfileInfo from './ProfileInfo';
 
 class UserData extends Component {
 	constructor(props){
