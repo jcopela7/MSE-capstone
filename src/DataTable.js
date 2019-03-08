@@ -91,8 +91,10 @@ class DataTable extends Component{
 				Header:'Date',
 				id: 'date',
 				accessor: d => {
-					return Moment(d.date)
-						.format('MMMM Do YYYY')
+
+					//save for later
+					 return Moment(d.date)
+					 	.format('MMMM Do YYYY')
 				},
 				filterable: true
 

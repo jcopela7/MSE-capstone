@@ -19,7 +19,7 @@ module.exports = mongoose.model('User', UserSchema);
 var MouthgaurdData = new Schema({
     user: String,
     date: Date,
-    time: Date,
+    time: String,
     P1: Number,
     P2: Number,
     P3: Number,
