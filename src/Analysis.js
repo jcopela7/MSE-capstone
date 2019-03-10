@@ -6,6 +6,7 @@ import './Table.css';
 import _ from 'lodash';
 import Button from 'react-bootstrap/Button';
 import {Radar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 
 
 class Analysis extends Component{
@@ -25,6 +26,7 @@ class Analysis extends Component{
 				<div>
 					<h1> Average Force </h1>
 					<Radar data={this.props.radarData}/>
+					<Line data={this.props.lineData}/>
 				</div>
 			)
 		}

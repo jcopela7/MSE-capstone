@@ -33,6 +33,19 @@ class DataTable extends Component{
 	      	}],
 	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
 	      },
+	     lineData:{
+	      	datasets:[{
+	      		data:[],
+	      		label:'Force over night',
+	  			backgroundColor: 'rgba(255,99,132,0.2)',
+      			borderColor: 'rgba(255,99,132,1)',
+      			pointBackgroundColor: 'rgba(255,99,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(255,99,132,1)'	  		
+	      	}],
+	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
+	      },
 	      processed: 'FALSE'
     	};
 
@@ -79,6 +92,33 @@ class DataTable extends Component{
 			},
 
 		})
+
+		var dataArray=[];
+		var timeArray=["adsasd","asd","asd"];
+		for (let i=0;i<data.length;i++){
+			dataArray[i]=data[i].P1;
+			//timeArray=[i]=data[i].time
+		}
+
+
+		//update line data set
+		this.setState({
+			lineData: {
+			datasets:[{
+				data:dataArray,
+				label:'Raw Force Force',
+				backgroundColor: 'rgba(255,99,132,0.2)',
+      			borderColor: 'rgba(255,99,132,1)',
+      			pointBackgroundColor: 'rgba(255,99,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(255,99,132,1)'
+				}],
+			labels:['Hello',"World","asda"]
+			},
+
+		})
+
    		 event.preventDefault();		
 	}
 
@@ -192,6 +232,7 @@ class DataTable extends Component{
 				<Analysis 
 					processed = {this.state.processed}
 					radarData={this.state.radarData}
+					lineData={this.state.lineData}
 				/>			
 			</div>
 		);
