@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
 
 
 var UserSchema = new Schema({
+    UserId: Number,
     FirstName: String,
     LastName: String,
     weight: Number,
@@ -17,6 +18,7 @@ var UserSchema = new Schema({
 module.exports = mongoose.model('User', UserSchema);
 
 var MouthgaurdData = new Schema({
+    UserId:Number,
     user: String,
     date: Date,
     time: String,

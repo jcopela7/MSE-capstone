@@ -24,7 +24,7 @@ class UserData extends Component {
 				gender: "M"
 			}],
 			mouthgaurdData:[{
-				user:"Jon",	
+				UserId:"Jon",	
 		        date: "01-12-2019",
 		        time: "12:01 am",
 		        P1: 10,
@@ -36,10 +36,12 @@ class UserData extends Component {
 		        P7: 12,
 		        P8: 89
 			}], 
-		user: "Null"
+		user: "Null",
+		UserId: 0,
 		
 	};
 	this.handleUser=this.handleUser.bind(this);
+	this.handlePassword=this.handlePassword.bind(this);
 
 	}
 
@@ -49,6 +51,12 @@ class UserData extends Component {
 		this.setState({user:userEntry})
 	}
 
+	handlePassword(event){
+		const userEntry=event.target.value;
+		
+		this.setState({UserId:userEntry})
+	}
+
 	handleSubmit(event){
 		fetch("/user/" + this.state.user)
       		.then(res => res.json())
@@ -56,8 +64,8 @@ class UserData extends Component {
         		this.setState({
           		data: data
         	});
-      	});
-      	fetch("/data/" + this.state.user)
+      	});	
+      	fetch("/data/" + this.state.UserId)
       		.then(res => res.json())
       		.then((data) => {
         		this.setState({
@@ -82,7 +90,7 @@ class UserData extends Component {
 						</Form.Group>
 						<Form.Group>
 							<Form.Label> Password</Form.Label>
-							<Form.Control type="text" placeholder="Password" className="mr-sm-2" />
+							<Form.Control type="text" placeholder="Password" className="mr-sm-2" onChange={this.handlePassword}/>
 						</Form.Group>
 						<Button type="submit" variant="outline-info">Enter</Button>
 			        </Form>

@@ -16,8 +16,8 @@ module.exports = function(app) {
 		  });
 		});
 
-  app.get('/data/:user',function(req,res){
-  		MouthgaurdData.find({'user':req.params.user}, function (err,data){
+  app.get('/data/:UserId',function(req,res){
+  		MouthgaurdData.find({'UserId':req.params.UserId}, function (err,data){
 		   if (err)
 		     res.send(err);
 		  console.log(data);
