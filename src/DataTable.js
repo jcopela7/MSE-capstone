@@ -43,6 +43,16 @@ class DataTable extends Component{
       			pointBorderColor: '#fff',
       			pointHoverBackgroundColor: '#fff',
       			pointHoverBorderColor: 'rgba(255,99,132,1)'	  		
+	      	},
+	      	{
+	      		data:[],
+	      		label:'Force over night',
+	  			backgroundColor: 'rgba(255,99,132,0.2)',
+      			borderColor: 'rgba(255,99,132,1)',
+      			pointBackgroundColor: 'rgba(255,99,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(255,99,132,1)'	
 	      	}],
 	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
 	      },
@@ -59,14 +69,13 @@ class DataTable extends Component{
 		//get sum of all pressure data
 		for (let i=0;i<data.length;i++){
 			dataAvg[0]+=data[i].P1;
-			dataAvg[1]+=data[i].P1;
-			dataAvg[2]+=data[i].P2;
-			dataAvg[3]+=data[i].P3;
-			dataAvg[4]+=data[i].P4;
-			dataAvg[5]+=data[i].P5;
-			dataAvg[6]+=data[i].P6;
-			dataAvg[7]+=data[i].P7;
-			dataAvg[8]+=data[i].P8;
+			dataAvg[1]+=data[i].P2;
+			dataAvg[2]+=data[i].P3;
+			dataAvg[3]+=data[i].P4;
+			dataAvg[4]+=data[i].P5;
+			dataAvg[5]+=data[i].P6;
+			dataAvg[6]+=data[i].P7;
+			dataAvg[7]+=data[i].P8;
 		}
 
 		//get average of each ionic skin
@@ -93,10 +102,12 @@ class DataTable extends Component{
 
 		})
 
-		var dataArray=[];
+		var P1_dataArray=[0,0,0];
+		var P2_dataArray=[0,0,0];
 		var timeArray=["adsasd","asd","asd"];
 		for (let i=0;i<data.length;i++){
-			dataArray[i]=data[i].P1;
+			P1_dataArray[i]=data[i].P1;
+			P2_dataArray[i]=data[i].P2;
 			//timeArray=[i]=data[i].time
 		}
 
@@ -105,15 +116,25 @@ class DataTable extends Component{
 		this.setState({
 			lineData: {
 			datasets:[{
-				data:dataArray,
-				label:'Raw Force Force',
+				data: P1_dataArray,
+				label:'P1 Force',
 				backgroundColor: 'rgba(255,99,132,0.2)',
       			borderColor: 'rgba(255,99,132,1)',
       			pointBackgroundColor: 'rgba(255,99,132,1)',
       			pointBorderColor: '#fff',
       			pointHoverBackgroundColor: '#fff',
       			pointHoverBorderColor: 'rgba(255,99,132,1)'
-				}],
+				},
+				{
+				data: P2_dataArray,
+				label:'P1 Force',
+				backgroundColor: 'rgba(99,255,132,0.2)',
+      			borderColor: 'rgba(99,255,132,1)',
+      			pointBackgroundColor: 'rgba(99,255,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(99,255,132,1)'
+      			}],
 			labels:['Hello',"World","asda"]
 			},
 

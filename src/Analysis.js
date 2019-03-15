@@ -26,6 +26,7 @@ class Analysis extends Component{
 				<div>
 					<h1> Average Force </h1>
 					<Radar data={this.props.radarData}/>
+					<h1> Force over time </h1>
 					<Line data={this.props.lineData}/>
 				</div>
 			)
