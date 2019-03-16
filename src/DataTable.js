@@ -31,7 +31,7 @@ class DataTable extends Component{
       			pointHoverBackgroundColor: '#fff',
       			pointHoverBorderColor: 'rgba(255,99,132,1)'	  		
 	      	}],
-	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
+	      	labels:[]
 	      },
 	     lineData:{
 	      	datasets:[{
@@ -79,7 +79,7 @@ class DataTable extends Component{
 		}
 
 		//get average of each ionic skin
-		for (let i=0; i<dataAvg.length-1; i++){
+		for (let i=0; i<dataAvg.length; i++){
 			dataAvg[i]=dataAvg[i]/data.length;
 		}
 
@@ -102,13 +102,17 @@ class DataTable extends Component{
 
 		})
 
-		var P1_dataArray=[0,0,0];
-		var P2_dataArray=[0,0,0];
+		var P1_dataArray=[0,0,0,0,0,0,0];
+		var P2_dataArray=[0,0,0,0,0,0,0];
+		var P3_dataArray=[0,0,0,0,0,0,0];
+		var P4_dataArray=[0,0,0,0,0,0,0];
 		var timeArray=["adsasd","asd","asd"];
 		for (let i=0;i<data.length;i++){
 			P1_dataArray[i]=data[i].P1;
 			P2_dataArray[i]=data[i].P2;
-			//timeArray=[i]=data[i].time
+			P3_dataArray[i]=data[i].P3;
+			P4_dataArray[i]=data[i].P4;
+			//timeArray=[i]="data"
 		}
 
 
@@ -127,15 +131,33 @@ class DataTable extends Component{
 				},
 				{
 				data: P2_dataArray,
-				label:'P1 Force',
+				label:'P2 Force',
 				backgroundColor: 'rgba(99,255,132,0.2)',
       			borderColor: 'rgba(99,255,132,1)',
       			pointBackgroundColor: 'rgba(99,255,132,1)',
       			pointBorderColor: '#fff',
       			pointHoverBackgroundColor: '#fff',
       			pointHoverBorderColor: 'rgba(99,255,132,1)'
-      			}],
-			labels:['Hello',"World","asda"]
+      			},
+      			{
+      			data: P3_dataArray,
+				label:'P3 Force',
+				backgroundColor: 'rgba(6,15,68,0.2)',
+      			borderColor: 'rgba(6,15,68,1)',
+      			pointBackgroundColor: 'rgba(99,255,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(99,255,132,1)'},
+      			{
+      			data: P4_dataArray,
+				label:'P4 Force',
+				backgroundColor: 'rgba(120,5,16,0.2)',
+      			borderColor: 'rgba(120,5,16,1)',
+      			pointBackgroundColor: 'rgba(99,255,132,1)',
+      			pointBorderColor: '#fff',
+      			pointHoverBackgroundColor: '#fff',
+      			pointHoverBorderColor: 'rgba(99,255,132,1)'}],
+			labels:["12","12325","asdf","sdfgg","w234","234wet"]
 			},
 
 		})
