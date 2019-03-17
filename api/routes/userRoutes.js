@@ -25,4 +25,13 @@ module.exports = function(app) {
   		  });
   		});
 
+  app.get('/alldata/',function(req,res){
+  		MouthgaurdData.find({}, function (err,data){
+		   if (err)
+		     res.send(err);
+		  console.log(data);
+		  res.json(data);  			
+  		  });
+  		});  
+
 };

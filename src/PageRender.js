@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserData from './UserData';
+import Dentist from './Dentist';
 import "react-table/react-table.css";
 import './Home.css';
 
@@ -19,7 +20,7 @@ class PageRender extends Component {
 					)
 			case "DentistData":
 				return(
-					<h1>Dentist Data</h1>
+					<Dentist/>
 					)
 		}
 	};
