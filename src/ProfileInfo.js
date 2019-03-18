@@ -25,10 +25,19 @@ class ProfileInfo extends Component {
 		else{
 			return(
 				<div>
-					<img src={UserIcon} alt="User Icon" height="200" width="200"/>
-					<h3> First Name: {this.props.FirstName} </h3>
-					<h3> Last Name: {this.props.LastName} </h3>
-					<h3> Weight: {this.props.weight} Kg </h3>
+					<div id="profile-data">
+						<div id="user-icon">
+							<h1> User Photo </h1>
+							<img src={UserIcon} alt="User Icon" height="200" width="200"/>
+						</div>
+						<div id="user-info">
+							<h3> First Name: {this.props.FirstName} </h3>
+							<h3> Last Name: {this.props.LastName} </h3>
+							<h3> Weight: {this.props.weight} Kg </h3>
+							<h3> Age: {this.props.age} </h3>
+							<h3> Gender: {this.props.gender} </h3>
+						</div>
+					</div>
 					<DataTable data={this.props.data}/>
 					
 				</div>

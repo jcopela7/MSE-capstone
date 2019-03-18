@@ -23,11 +23,15 @@ class Analysis extends Component{
 		}
 		else{
 			return(
-				<div>
-					<h1> Average Force </h1>
-					<Radar data={this.props.radarData}/>
-					<h1> Force over time </h1>
-					<Line data={this.props.lineData}/>
+				<div id="analysis">
+					<div id="analysis-chart">	
+						<h1> Average Force </h1>
+						<Radar data={this.props.radarData} width={500} height={400}/>
+					</div>
+					<div id="analysis-chart">
+						<h1> Force over time </h1>
+						<Line data={this.props.lineData} width={500} height={400}/>
+					</div>
 				</div>
 			)
 		}

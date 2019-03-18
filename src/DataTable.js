@@ -54,7 +54,7 @@ class DataTable extends Component{
       			pointHoverBackgroundColor: '#fff',
       			pointHoverBorderColor: 'rgba(255,99,132,1)'	
 	      	}],
-	      	labels:['P1','P2','P3','P4','P5','P6','P7','P8']
+	      	labels:['Left Molar','Right Molar','Left Fangs','Right Fangs','P5','P6','P7','P8']
 	      },
 	      processed: 'FALSE'
     	};
@@ -97,7 +97,7 @@ class DataTable extends Component{
       			pointHoverBackgroundColor: '#fff',
       			pointHoverBorderColor: 'rgba(255,99,132,1)'
 				}],
-			labels:['P1','P2','P3','P4','P5','P6','P7','P8']
+			labels:['Left Molar','Right Molar','Left Fangs','Right Fangs','P5','P6','P7','P8']
 			},
 
 		})
@@ -271,7 +271,9 @@ class DataTable extends Component{
 				showPagination={false}
 				filterable
 				/>
-				<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Process Raw Data </Button>
+				<div id="submit">
+					<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Process Raw Data </Button>
+				</div>
 				<Analysis 
 					processed = {this.state.processed}
 					radarData={this.state.radarData}

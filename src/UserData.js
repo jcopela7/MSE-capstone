@@ -103,6 +103,8 @@ class UserData extends Component {
 					FirstName={profile[profile.length-1].FirstName}
 					LastName={profile[profile.length-1].LastName}
 					weight={profile[profile.length-1].weight}
+					age={profile[profile.length-1].age}
+					gender={profile[profile.length-1].gender}
 					user={this.state.user}
 					data={this.state.mouthgaurdData}/>
 				)

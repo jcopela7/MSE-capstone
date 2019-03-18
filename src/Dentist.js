@@ -26,7 +26,9 @@ class Dentist extends Component {
 	render(){
 		return(
 		<div>	
-			<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Generate Report </Button>
+			<div id="submit">
+				<Button type="submit" variant="outline-info" onClick={k=>this.handleSubmit(k)}> Generate Report </Button>
+			</div>
 			<DataTable data={this.state.data}/>
 		</div>
 		)

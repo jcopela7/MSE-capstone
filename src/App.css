@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+* {
+  font-family: 'Roboto', sans-serif;
+
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -41,5 +46,30 @@
   background-color: #08262F;
 }
 
+#profile-data{
+  display: flex;
+  justify-content: center;
+}
 
+#user-icon{
+padding: 2%;
+}
 
+#user-info{
+  text-align: left;
+  padding: 2%;
+}
+
+#submit{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#analysis{
+  display: flex;
+  justify-content: center;
+}
+
+#analysis-chart{
+  margin: 2%;
+}
