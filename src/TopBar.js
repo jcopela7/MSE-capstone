@@ -35,6 +35,7 @@ class TopBar extends Component {
 			      <Nav.Link eventKey="Home" href="#home">Home</Nav.Link>
 			      <Nav.Link eventKey="UserData" href="#UserData">User Data</Nav.Link>
 			      <Nav.Link eventKey="DentistData" href="#DentistData">Dentist Data</Nav.Link>
+			      <Nav.Link eventKey="About" href="#About">About</Nav.Link>
 			    </Nav>
 			    <Form inline>
 			      <Form.Control type="text" placeholder="Search" className="mr-sm-2" />

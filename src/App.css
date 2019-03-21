@@ -49,10 +49,13 @@
 #profile-data{
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 #user-icon{
 padding: 2%;
+margin-right: 10%;
+border: 10px solid black;
 }
 
 #user-info{
@@ -72,4 +75,28 @@ padding: 2%;
 
 #analysis-chart{
   margin: 2%;
+}
+
+#about{
+  background-color: #DFEBEB;
+}
+
+#about-container{
+  margin-left: 20%;
+  margin-right:20%;
+}
+
+#contributors{
+  display: flex;
+  justify-content: center;
+}
+
+#contributor-photo{
+  margin: 2%;
+}
+
+#description{
+  margin-top: 2%;
+  text-align: center;
+  padding-right: 48%;
 }

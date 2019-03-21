@@ -144,19 +144,19 @@ class DataTable extends Component{
 				label:'P3 Force',
 				backgroundColor: 'rgba(6,15,68,0.2)',
       			borderColor: 'rgba(6,15,68,1)',
-      			pointBackgroundColor: 'rgba(99,255,132,1)',
+      			pointBackgroundColor: 'rgba(6,15,68,1)',
       			pointBorderColor: '#fff',
       			pointHoverBackgroundColor: '#fff',
-      			pointHoverBorderColor: 'rgba(99,255,132,1)'},
+      			pointHoverBorderColor: 'rgba(6,15,68,1)'},
       			{
       			data: P4_dataArray,
 				label:'P4 Force',
 				backgroundColor: 'rgba(120,5,16,0.2)',
       			borderColor: 'rgba(120,5,16,1)',
-      			pointBackgroundColor: 'rgba(99,255,132,1)',
+      			pointBackgroundColor: 'rgba(120,5,16,1)',
       			pointBorderColor: '#fff',
       			pointHoverBackgroundColor: '#fff',
-      			pointHoverBorderColor: 'rgba(99,255,132,1)'}],
+      			pointHoverBorderColor: 'rgba(120,5,16,1)'}],
 			labels:["12","12325","asdf","sdfgg","w234","234wet"]
 			},
 
