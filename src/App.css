@@ -100,3 +100,7 @@ border: 10px solid black;
   text-align: center;
   padding-right: 48%;
 }
+
+#paragraph{
+  text-align: left;
+}

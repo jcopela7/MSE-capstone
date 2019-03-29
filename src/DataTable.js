@@ -157,7 +157,7 @@ class DataTable extends Component{
       			pointBorderColor: '#fff',
       			pointHoverBackgroundColor: '#fff',
       			pointHoverBorderColor: 'rgba(120,5,16,1)'}],
-			labels:["12","12325","asdf","sdfgg","w234","234wet"]
+			labels:["","","","","",""]
 			},
 
 		})

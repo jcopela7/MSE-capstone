@@ -39,7 +39,27 @@ class About extends Component {
 					</div>
 					<div>
 						<h2> Who are we?</h2>
-						<p> We are a group of university students who have set out to build a mouthguard that can detect and track when people grind thier teeth. This data is available online through this website for the user and doctor to interpret. </p>
+						<div id = "paragraph">
+							<p> We are a group of university students who have set out to build a mouthguard that can detect and track when people grind thier teeth. This data is available online through this website for the user and doctor to interpret. </p>
+						</div>
+					</div>
+					<div>
+						<h2> Smart Mouthguard</h2>
+						<div id = "paragraph">
+							<p> We are a group of university students who have set out to build a mouthguard that can detect and track when people grind thier teeth. This data is available online through this website for the user and doctor to interpret. </p>
+						</div>
+					</div>
+					<div>
+						<h2> Ionic Skin</h2>
+						<div id = "paragraph">
+							<p> We are a group of university students who have set out to build a mouthguard that can detect and track when people grind thier teeth. This data is available online through this website for the user and doctor to interpret. </p>
+						</div>
+					</div>
+					<div>
+						<h2> Shape Memory Alloy</h2>
+						<div id = "paragraph">
+							<p> We are a group of university students who have set out to build a mouthguard that can detect and track when people grind thier teeth. This data is available online through this website for the user and doctor to interpret. </p>
+						</div>
 					</div>
 				</div>
 			</div>
